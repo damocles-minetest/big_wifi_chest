@@ -9,43 +9,43 @@ minetest.register_node("big_wifi_chest:big_wifi_chest", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",
-				"size[8,9]"..
+				"size[16,13]"..
 				default.gui_bg ..
 				default.gui_bg_img ..
 				default.gui_slots ..
-				"list[current_player;more_chests:wifi;0,0.3;8,4;]"..
-				"list[current_player;main;0,4.85;8,1;]" ..
-				"list[current_player;main;0,6.08;8,3;8]" ..
-				"listring[current_player;more_chests:wifi]" ..
+				"list[current_player;big_wifi_chest:big_wifi_chest;0,0.3;16,8;]"..
+				"list[current_player;main;0,8.85;8,1;]" ..
+				"list[current_player;main;4,10.08;8,3;8]" ..
+				"listring[current_player;big_wifi_chest:big_wifi_chest]" ..
 				"listring[current_player;main]" ..
-				default.get_hotbar_bg(0,4.85))
+				default.get_hotbar_bg(0,8.85))
 
 		meta:set_string("infotext", "Big Wifi Chest")
 	end,
 	on_metadata_inventory_move = function(pos, _, _, _, _, _, player)
 		minetest.log("action", player:get_player_name()..
-				" moves stuff in wifi chest at "..minetest.pos_to_string(pos))
+				" moves stuff in big wifi chest at "..minetest.pos_to_string(pos))
 	end,
     on_metadata_inventory_put = function(pos, _, _, _, player)
 		minetest.log("action", player:get_player_name()..
-				" moves stuff to wifi chest at "..minetest.pos_to_string(pos))
+				" moves stuff to big wifi chest at "..minetest.pos_to_string(pos))
 	end,
     on_metadata_inventory_take = function(pos, _, _, _, player)
 		minetest.log("action", player:get_player_name()..
-				" takes stuff from wifi chest at "..minetest.pos_to_string(pos))
+				" takes stuff from big wifi chest at "..minetest.pos_to_string(pos))
 	end,
 })
 
 minetest.register_craft({
-	output = 'more_chests:wifi',
+	output = 'big_wifi_chest:big_wifi_chest',
 	recipe = {
-		{'default:wood','default:mese','default:wood'},
+		{'default:mese','default:mese','default:mese'},
 		{'default:wood','default:steel_ingot','default:wood'},
-		{'default:wood','default:wood','default:wood'}
+		{'default:mese','default:mese','default:mese'}
 	}
 })
 
 minetest.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
-	inv:set_size("more_chests:wifi", 8*4)
+	inv:set_size("big_wifi_chest:big_wifi_chest", 16*8)
 end)
