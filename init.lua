@@ -14,7 +14,7 @@ minetest.register_node("big_wifi_chest:big_wifi_chest", {
 				default.gui_bg_img ..
 				default.gui_slots ..
 				"list[current_player;big_wifi_chest:big_wifi_chest;0,0.3;16,8;]"..
-				"list[current_player;main;0,8.85;8,1;]" ..
+				"list[current_player;main;4,8.85;8,1;]" ..
 				"list[current_player;main;4,10.08;8,3;8]" ..
 				"listring[current_player;big_wifi_chest:big_wifi_chest]" ..
 				"listring[current_player;main]" ..
